@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/ycad-1.0.2/ycad-1.0.2/lib/ycad.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/batik-all.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/js.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/kabeja-0.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/kabeja-svg-0.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/kabeja-xslt.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/miethxml-toolkit.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/miethxml-ui.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/pdf-transcoder.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/xml-apis.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/lib/xml-apis-ext.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/inkscape-extension/kabeja-dxf2svg.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Amel/Downloads/kabeja-0.4/kabeja-0.4/launcher.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

@@ -1,0 +1,162 @@
+Ovdje pisati sve moje zabiljeske ili ToDO
+
+STANDARD:
+
+----------------- Kako kopirati projekat !!! -----------------
+
+*** 1.) u workspace-u dupliramo (copy/paste) projekat tj. folder
+	2.) u eclipseu idemo na import -> existing projects...
+	3.) javit će možda grešku na projektu, moramo Alt+F5 da
+		osvježimo maven projekat kako bi učitao dependencye
+	4.) desni klik na projekat i build-path i u configure build path
+		označiti sve Library-e koji nisu označeni (obično java i
+		dependencies)
+	5.) ponovo osvježiti maven sa Alt+F5
+	6.) Sada projekat radi odlično
+	
+	7.) GEŠKA - prilikom pokretanja tomcat-a (more context paths)
+		To znači da moramo promijeniti u tomcatu path pošto
+		sada 2 projekta imaju isti path u tomcatu jer nisu
+		novi nego samo duplirani.
+	
+	8.) RJEŠENJE - u eclipse-u na lijevoj strani u Project Explorer
+		naći folder Servers i tu za dati server naći server.xml.
+		Unutar tog filea naći <context> - obično na kraju stranice,
+		i izbrisati posljednji <context> (skrooooooz desno obično),
+		tomcat ih ne reda jedan ispod drugog iz nekog razloga.
+
+
+------------------------ OBAVEZNO ----------------------------
+
+*** dodati implementaciju u metodu password mix
+
+
+
+-------------- Pisanje DAO klasa i interface-a: --------------
+
+*** Interface: IntDAO_ImeKlase
+*** Klasa: DAO_ImeKlase
+
+*** Metode:
+	-return type boolean umjesto void
+
+
+-------------------- Pisanje BO klasa ------------------------
+
+"interface nam ne treba, dzaba samo smeta. Dovoljno u DAO INT"
+
+*** BO_ImeKlase
+
+*** Metode:
+	-return type boolean umjesto void
+
+
+------------------------ WEB-INF ----------------------------
+
+pristup WEB-INF-u je moguć samo preko REQUEST DISPATCHER.
+
+
+----------------------- MySQL info ---------------------------
+
+*** MySQL transaction:
+	TRANSACTION;
+	SELECT * FROM 1;
+	SELECT * FROM 2;
+	COMMIT;
+	* u JAVA Prepared Statement transaction NE ide ovako !!! *
+	
+*** DELETE
+	treba nam: SET SQL_SAFE_UPDATES = 0; (za Workbench)
+	
+*** OVA sintaksa je za MySQL bazu na SERVERU:
+  
+ CREATE DATABASE IF NOT EXISTS myTestDatabase CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ CREATE TABLE IF NOT EXISTS users (userId INT NOT NULL AUTO_INCREMENT, username VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL, 
+password VARCHAR(100) NOT NULL, PRIMARY KEY (userId)) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+----------------------- Filteri ---------------------------
+
+ @WebFilter("/folderName/*.jsp") - this DOES NOT WORK ERROR in TOMCAT
+ 
+ @WebFilter("/folderName/fileName.jsp") - this works only on the fileName.jsp
+ @WebFilter("/nameOfServlet") - this works on only one servlet
+ @WebFilter( {"/nameOfServlet1", "/nameOfServlet2"} ) - this works on multiple servlets
+ @WebFilter("/*") - this works on everything
+ @WebFilter("/folderName/*") - this works on everything in a specific folder
+
+ *** for content in WEB_INF:
+ you can enter WEB-INF only using request.getDispatcher, so that we must 
+ define the dispatcher type we also want to filter: 
+ 
+ @WebFilter(value = { "/WEB-INF/jsp/*" }, dispatcherTypes = { DispatcherType.REQUEST, DispatcherType.FORWARD })
+
+
+
+----------------------- UTF-8 encoding (URIEncoding) ---------------------------
+
+* Ako POST i GET metode Tomcat ne prevodi u UTF-8 onda dodati u <Connector> ovo:URIEncoding="UTF-8", 
+PRIMJER:
+
+<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443" URIEncoding="UTF-8"/>
+
+
+* Filter za encoding:
+
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8"); //ovo mora biti zbog GET metode
+		response.setCharacterEncoding("UTF-8");
+
+* Email encoding (sva tri su jako bitna):
+
+		msg.setSubject(subject, "UTF-8");
+		msg.setText(messageText, "UTF-8");
+		msg.setContent(messageText, "text/plain; charset=UTF-8"); 
+
+
+
+----------------------- Učitavanje fileova iz 'resources' ---------------------------
+
+*** Maven ne dozvoljava direktan pristup nego putem Classloadera
+
+Static način:
+
+ClassLoader classLoader = ImeKlaseUKojojSeNalazimoTrenutno.class.getClassLoader();
+File dbFile = new File(classLoader.getResource("imeFilea.txt").getFile());
+
+
+
+----------------------- Language detection - Max Mind GeoIP ---------------------------
+
+LICENCA (ovo treba navesti negdje): 
+
+This product includes GeoLite2 data created by MaxMind, 
+available from <a href="http://www.maxmind.com">http://www.maxmind.com</a>.
+		 
+TUTORIAL:
+http://o7planning.org/en/10455/retrieving-geographic-information-based-on-ip-address-using-geoip2-java-api
+
+
+
+----------------------- Skrivanje .jsp u URL-u ---------------------------
+
+* Pristupati fileovima preko controllera (dispatcher) umjesto linkova;
+* koristiti ime servleta u linku <a href="NekiServlet"> umjesto URL linka
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
